@@ -27,7 +27,7 @@
 ## 📸 Demo
 
 ### CV Optimizer Walkthrough
-![JobAlign CV Optimizer Walkthrough](assets/demo.webp)
+![JobAlign CV Optimizer Walkthrough](assets/demo.gif)
 
 ### Screenshots
 *Place your screenshots here to showcase the beautiful UI.*
