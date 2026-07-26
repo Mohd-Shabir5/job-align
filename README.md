@@ -1,4 +1,4 @@
----
+
 
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)
@@ -113,6 +113,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 
 ```
 job-align/
+├── python-prototype/       # Original Python ADK Agent Prototype
 ├── public/                 # Static assets (images, SVGs)
 ├── src/
 │   ├── app/                # Next.js App Router (Pages & API Routes)
