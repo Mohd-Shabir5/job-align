@@ -1,4 +1,4 @@
-
+# JobAlign AI
 
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)
@@ -26,10 +26,8 @@
 
 ## 📸 Demo
 
-> **Note:** Add a GIF or video walkthrough of your application here!
-> 
-> *Example format:*
-> `![JobAlign Walkthrough](assets/demo.gif)`
+### CV Optimizer Walkthrough
+![JobAlign CV Optimizer Walkthrough](assets/demo.webp)
 
 ### Screenshots
 *Place your screenshots here to showcase the beautiful UI.*
