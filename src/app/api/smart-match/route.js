@@ -98,7 +98,7 @@ export async function POST(request) {
   } catch (err) {
     console.error("Smart match error:", err);
     return Response.json(
-      { success: false, error: err.message || "Smart match failed." },
+      { success: false, error: "Smart match failed due to a server error. Please try again later." },
       { status: 500 }
     );
   }

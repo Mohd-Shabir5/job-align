@@ -58,7 +58,7 @@ export async function POST(request) {
   } catch (err) {
     console.error("Optimization pipeline error:", err);
     return Response.json(
-      { success: false, error: err.message || "Pipeline failed." },
+      { success: false, error: "Optimization pipeline failed due to a server error. Please try again later." },
       { status: 500 }
     );
   }
