@@ -1,0 +1,8 @@
+{
+    "id": "543e20e7-517d-4615-92d0-94a8b246355c",
+    "date": "2026-07-01",
+    "topic": "SQL Joins",
+    "content": "SQL joins are used to combine rows from two or more tables, based on a related column between them. The main types are INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN. An INNER JOIN returns only the matching rows, whereas a LEFT JOIN returns all rows from the left table and the matched rows from the right table.",
+    "next_review_date": "2026-07-01",
+    "interval_stage": "+1 day"
+}

@@ -1,0 +1,8 @@
+{
+    "id": "97ed8920-586f-4723-a96a-825bbe37a73d",
+    "date": "2026-07-01",
+    "topic": "Agentic Engineering vs. Vibe Coding",
+    "content": "The core way we build software has fundamentally changed from \"translating syntax to expressing intent via natural language\". However, there is a dangerous trap called \"vibe coding,\" which is a casual approach where you accept whatever the AI generates and simply \"copy paste errors back to iterate\" until it seems to work. To be a successful professional, you must graduate to \"agentic engineering,\" where the AI operates within \"structured deterministic boundaries\". In easy terms, this means you stop blindly trusting the AI and start forcing it to work inside strict human-designed rules, automated test suites, and verification loops so the final code is actually reliable.",
+    "next_review_date": "2026-07-01",
+    "interval_stage": "+1 day"
+}

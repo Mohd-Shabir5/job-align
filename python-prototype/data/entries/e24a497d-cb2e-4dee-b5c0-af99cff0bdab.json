@@ -1,0 +1,8 @@
+{
+    "id": "e24a497d-cb2e-4dee-b5c0-af99cff0bdab",
+    "date": "2026-07-01",
+    "topic": "Python Decorators",
+    "content": "A Python decorator is a design pattern that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate using the @ character.",
+    "next_review_date": "2026-07-01",
+    "interval_stage": "+1 day"
+}

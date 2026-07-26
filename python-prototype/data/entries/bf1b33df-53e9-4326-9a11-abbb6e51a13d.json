@@ -1,0 +1,8 @@
+{
+    "id": "bf1b33df-53e9-4326-9a11-abbb6e51a13d",
+    "date": "2026-07-01",
+    "topic": "Power BI Relationships",
+    "content": "In Power BI, relationships define how data sources are connected to each other. By establishing relationships between tables, typically using a star schema with fact and dimension tables, you can create reports that filter and aggregate data correctly across different visualizations.",
+    "next_review_date": "2026-07-01",
+    "interval_stage": "+1 day"
+}
