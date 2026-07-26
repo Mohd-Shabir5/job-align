@@ -27,7 +27,7 @@
 ## 📸 Demo
 
 ### CV Optimizer Walkthrough
-<video src="assets/demo.mp4" autoplay loop muted playsinline width="100%"></video>
+https://github.com/Mohd-Shabir5/job-align/raw/main/assets/demo.mp4
 
 ### Screenshots
 *Place your screenshots here to showcase the beautiful UI.*
