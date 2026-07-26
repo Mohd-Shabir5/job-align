@@ -26,8 +26,11 @@
 
 ## 📸 Demo
 
-### CV Optimizer Walkthrough
-https://github.com/Mohd-Shabir5/job-align/raw/main/assets/demo.mp4
+### 🔍 Live Job Search & CV Optimizer
+![Job Search & CV Optimizer Walkthrough](assets/search_opt.gif)
+
+### 🧠 Smart Match
+![Smart Match Walkthrough](assets/job_match.gif)
 
 ### Screenshots
 *Place your screenshots here to showcase the beautiful UI.*
