@@ -70,8 +70,8 @@ JobAlign utilizes a **Multi-Agent Workflow** under the hood to ensure high-quali
 | Component | Choice |
 |---|---|
 | Frontend Framework | Next.js (App Router) & React.js |
-| AI Agent Framework | Google Agent Development Kit (ADK) & Python |
-| LLM Engine | Google Gemini |
+| AI Agent Framework | Custom Orchestration (JS) & Google ADK (Python Prototype) |
+| LLM Engine | Google Gemini (via `@google/genai` SDK) |
 | Job Data API | Adzuna Job Search API |
 | Styling | CSS Modules / Custom CSS |
 | Deployment | Vercel |
