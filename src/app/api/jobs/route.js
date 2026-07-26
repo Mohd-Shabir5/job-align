@@ -10,7 +10,7 @@ import { fetchLiveJobs } from "@/lib/jobSearch";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { query, location = "Dubai", country = "ae" } = body;
+    const { query, location = "Dubai", country = "us" } = body;
 
     if (!query || !query.trim()) {
       return Response.json(

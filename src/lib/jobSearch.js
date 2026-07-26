@@ -7,7 +7,7 @@
  */
 
 const ADZUNA_BASE_URL = "https://api.adzuna.com/v1/api/jobs/{country}/search/{page}";
-const DEFAULT_COUNTRY = "ae";
+const DEFAULT_COUNTRY = "us";
 const DEFAULT_PAGE = 1;
 const RESULTS_PER_PAGE = 10;
 

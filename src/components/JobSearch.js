@@ -14,7 +14,7 @@ const COUNTRY_OPTIONS = [
 export default function JobSearch({ onSelectJob }) {
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
-  const [country, setCountry] = useState("ae");
+  const [country, setCountry] = useState("us");
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
