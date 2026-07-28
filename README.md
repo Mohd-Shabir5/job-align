@@ -157,7 +157,7 @@ To run this project locally, you will need to set up the following environment v
 ## ⚠️ API Constraints & Rate Limits (Academic Note)
 *Note for graders and reviewers:* 
 This project currently operates on the **Free Tiers** for both Vercel and Google AI Studio to remain cost-free. 
-- **Google Gemini Rate Limit:** The free tier restricts usage to **20 requests per minute** (and 1,500 per day). 
+- **Google Gemini Rate Limit:** The free tier for this specific model (`gemini-2.5-flash`) strictly limits usage to **20 requests per day**.
 - Because the CV Optimizer utilizes a sequential 3-agent pipeline, a single optimization triggers 3 rapid API requests. 
 - If multiple users evaluate CVs simultaneously, or if a user clicks rapidly, the platform may temporarily hit a `429 Too Many Requests` error. **If this occurs, simply wait 10-15 seconds and try again.**
 - For a production deployment, this would be resolved by attaching a billing account to Google AI Studio to lift the RPM (Requests Per Minute) limit.
