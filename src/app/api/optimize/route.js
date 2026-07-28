@@ -61,8 +61,15 @@ export async function POST(request) {
   } catch (err) {
     // Uh oh, something broke! Log the error so we can fix it later.
     console.error("Optimization pipeline error:", err);
+    
+    // Pass along quota errors directly to the user
+    const isQuotaError = err?.message?.includes("quota") || err?.message?.includes("Quota");
+    const errorMessage = isQuotaError 
+      ? err.message 
+      : "Optimization pipeline failed due to a server error. Please try again later.";
+
     return Response.json(
-      { success: false, error: "Optimization pipeline failed due to a server error. Please try again later." },
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }

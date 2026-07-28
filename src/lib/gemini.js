@@ -57,13 +57,18 @@ export async function runAgent(systemPrompt, userMessage, retries = 3) {
       // Give back just the text part of the answer
       return response.text;
     } catch (error) {
+      // Fail immediately if it's a daily quota issue
+      if (error?.message?.includes("GenerateRequestsPerDay") || error?.message?.includes("generativelanguage.googleapis.com/generate_content_free_tier_requests")) {
+        throw new Error("Gemini API daily quota exceeded. Please check your plan or use a different API key.");
+      }
+
       // If we hit a 429 Rate Limit and we have retries left, wait and try again
       if (
         (error?.status === 429 || error?.message?.includes("429") || error?.message?.includes("Quota")) 
         && i < retries - 1
       ) {
-        console.warn(`Hit Gemini rate limit. Retrying in 25 seconds... (Attempt ${i + 1}/${retries})`);
-        await sleep(25000); // Wait 25 seconds
+        console.warn(`Hit Gemini rate limit. Retrying in 5 seconds... (Attempt ${i + 1}/${retries})`);
+        await sleep(5000); // Wait 5 seconds
       } else {
         throw error; // If it's not a rate limit, or we are out of retries, throw it
       }
