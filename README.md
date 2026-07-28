@@ -27,10 +27,10 @@
 ## 📸 Demo
 
 ### 🔍 Live Job Search & CV Optimizer
-![Job Search & CV Optimizer Walkthrough](assets/search_opt.gif)
+<img src="assets/search_opt.gif" alt="Job Search & CV Optimizer Walkthrough" width="100%">
 
 ### 🧠 Smart Match
-![Smart Match Walkthrough](assets/job_match.gif)
+<img src="assets/job_match.gif" alt="Smart Match Walkthrough" width="100%">
 
 ### Screenshots
 *Here are some screenshots showcasing the application in action:*
