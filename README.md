@@ -9,7 +9,7 @@
 
 > *An AI-driven career discovery platform that intelligently matches candidates to their perfect roles and dynamically optimizes their CVs using Multi-Agent LLM workflows.*
 
-**JobAlign AI** is a comprehensive, AI-powered web application designed to revolutionize the job search process. By combining live job market data with the reasoning capabilities of Google Gemini, JobAlign acts as a personal career strategist—finding relevant jobs, scoring your match probability, and tailoring your resume to bypass ATS (Applicant Tracking Systems) filters.
+**JobAlign AI** is a comprehensive, AI-powered web application designed to revolutionize the job search process. By combining live job market data with the reasoning capabilities of Google Gemini, JobAlign acts as a personal career strategist - finding relevant jobs, scoring your match probability, and tailoring your resume to bypass ATS (Applicant Tracking Systems) filters.
 
 ---
 
@@ -46,7 +46,7 @@
 ---
 
 ## 🚀 Project Overview
-Traditional job hunting is broken—candidates send out hundreds of generic CVs into the void, hoping to bypass automated ATS filters. 
+Traditional job hunting is broken - candidates send out hundreds of generic CVs into the void, hoping to bypass automated ATS filters. 
 
 **JobAlign AI** solves this by orchestrating a pipeline of specialized AI agents. While the core AI agent logic and initial prototyping were developed using **Python and the Google Agent Development Kit (ADK)**, we transitioned to a robust **JavaScript/Next.js** architecture for the production web app. This dual-language approach allowed us to rapidly build the intelligent agents in Python, while ensuring the final product could be hosted easily and seamlessly on Vercel with a beautiful React frontend.
 
