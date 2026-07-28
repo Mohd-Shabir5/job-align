@@ -35,11 +35,11 @@
 ### Screenshots
 *Here are some screenshots showcasing the application in action:*
 
-![Screenshot 1](assets/screenshot-1.png)
-
-![Screenshot 2](assets/screenshot-2.png)
-
-![Screenshot 3](assets/screenshot-3.png)
+<p align="center">
+  <a href="assets/screenshot-1.png"><img src="assets/screenshot-1.png" width="32%" alt="Screenshot 1"></a>
+  <a href="assets/screenshot-2.png"><img src="assets/screenshot-2.png" width="32%" alt="Screenshot 2"></a>
+  <a href="assets/screenshot-3.png"><img src="assets/screenshot-3.png" width="32%" alt="Screenshot 3"></a>
+</p>
 
 ---
 
