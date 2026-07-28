@@ -35,11 +35,13 @@
 ### Screenshots
 *Here are some screenshots showcasing the application in action:*
 
-<p align="center">
-  <a href="assets/screenshot-1.png"><img src="assets/screenshot-1.png" width="32%" alt="Screenshot 1"></a>
-  <a href="assets/screenshot-2.png"><img src="assets/screenshot-2.png" width="32%" alt="Screenshot 2"></a>
-  <a href="assets/screenshot-3.png"><img src="assets/screenshot-3.png" width="32%" alt="Screenshot 3"></a>
-</p>
+<table>
+  <tr>
+    <td valign="top" width="33%"><a href="assets/screenshot-1.png"><img src="assets/screenshot-1.png" width="100%" alt="Screenshot 1"></a></td>
+    <td valign="top" width="33%"><a href="assets/screenshot-2.png"><img src="assets/screenshot-2.png" width="100%" alt="Screenshot 2"></a></td>
+    <td valign="top" width="33%"><a href="assets/screenshot-3.png"><img src="assets/screenshot-3.png" width="100%" alt="Screenshot 3"></a></td>
+  </tr>
+</table>
 
 ---
 
