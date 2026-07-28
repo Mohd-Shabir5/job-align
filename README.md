@@ -33,10 +33,13 @@
 ![Smart Match Walkthrough](assets/job_match.gif)
 
 ### Screenshots
-*Place your screenshots here to showcase the beautiful UI.*
-* `![Live Job Search](assets/search-screenshot.png)`
-* `![Smart AI Match](assets/match-screenshot.png)`
-* `![CV Optimizer](assets/optimizer-screenshot.png)`
+*Here are some screenshots showcasing the application in action:*
+
+![Screenshot 1](assets/screenshot-1.png)
+
+![Screenshot 2](assets/screenshot-2.png)
+
+![Screenshot 3](assets/screenshot-3.png)
 
 ---
 
