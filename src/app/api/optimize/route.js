@@ -15,17 +15,19 @@ import {
   CV_ARCHITECT_PROMPT,
 } from "@/lib/agentPrompts";
 
-export const runtime = "edge";
 export const maxDuration = 60; // Allow up to 60s for the 3-step pipeline
 
 export async function POST(request) {
   try {
+    // Read the incoming data from the user (like getting a letter in the mail)
     const body = await request.json();
     const { cv, jobDescription } = body;
 
+    // Check if the user forgot to send their CV
     if (!cv || !cv.trim()) {
       return Response.json({ error: "CV text is required." }, { status: 400 });
     }
+    // Check if the user forgot to send the job description
     if (!jobDescription || !jobDescription.trim()) {
       return Response.json({ error: "Job description is required." }, { status: 400 });
     }
@@ -49,6 +51,7 @@ export async function POST(request) {
       `Rewrite the CV sections to maximise ATS compatibility. Do NOT fabricate any experience.`;
     const optimizedCv = await runAgent(CV_ARCHITECT_PROMPT, architectPrompt);
 
+    // Send back all the awesome results we got from the AI!
     return Response.json({
       success: true,
       extraction,
@@ -56,6 +59,7 @@ export async function POST(request) {
       optimizedCv,
     });
   } catch (err) {
+    // Uh oh, something broke! Log the error so we can fix it later.
     console.error("Optimization pipeline error:", err);
     return Response.json(
       { success: false, error: "Optimization pipeline failed due to a server error. Please try again later." },

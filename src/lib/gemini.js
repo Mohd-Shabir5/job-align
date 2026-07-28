@@ -5,16 +5,24 @@
  * and a user message. Used by all API routes.
  */
 
+// Import the Google GenAI library so we can talk to Gemini
 import { GoogleGenAI } from "@google/genai";
 
+// We're using the fast and cheap flash model for this project!
 const MODEL = "gemini-2.5-flash";
 
+// Keep track of our client so we don't keep recreating it
 let _client = null;
 
+// Helper function to set up our connection to Google
 function getClient() {
   if (!_client) {
+    // Grab our secret key from the environment variables
     const apiKey = process.env.GEMINI_API_KEY;
+    // Crash the app if the key is missing (so we know to fix it!)
     if (!apiKey) throw new Error("GEMINI_API_KEY is not configured.");
+    
+    // Create the actual client
     _client = new GoogleGenAI({ apiKey });
   }
   return _client;
@@ -28,13 +36,17 @@ function getClient() {
  * @param {string} userMessage  — The user's input message
  * @returns {Promise<string>}   — The model's text response
  */
+// A small trick to pause execution for a bit (useful for waiting)
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function runAgent(systemPrompt, userMessage, retries = 3) {
+  // Get our configured client
   const client = getClient();
   
+  // Try calling the AI up to a certain number of times
   for (let i = 0; i < retries; i++) {
     try {
+      // Send the prompt and user message to Gemini
       const response = await client.models.generateContent({
         model: MODEL,
         contents: userMessage,
@@ -42,6 +54,7 @@ export async function runAgent(systemPrompt, userMessage, retries = 3) {
           systemInstruction: systemPrompt,
         },
       });
+      // Give back just the text part of the answer
       return response.text;
     } catch (error) {
       // If we hit a 429 Rate Limit and we have retries left, wait and try again

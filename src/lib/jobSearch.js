@@ -6,11 +6,15 @@
  * Translated from legacy/job_search.py
  */
 
+// The base URL for the Adzuna API, with placeholders for country and page
 const ADZUNA_BASE_URL = "https://api.adzuna.com/v1/api/jobs/{country}/search/{page}";
+
+// Default settings if the user doesn't provide them
 const DEFAULT_COUNTRY = "us";
 const DEFAULT_PAGE = 1;
 const RESULTS_PER_PAGE = 10;
 
+// A list of countries that the Adzuna API actually supports
 const SUPPORTED_COUNTRIES = [
   "at", "au", "be", "br", "ca", "ch", "de", "es", "fr", "gb", "in", "it",
   "mx", "nl", "nz", "pl", "sg", "us", "za"
@@ -26,48 +30,60 @@ const SUPPORTED_COUNTRIES = [
  * @returns {Promise<Array<{title:string, company:string, location:string, description:string}>>}
  */
 export async function fetchLiveJobs(query, location = "Dubai", country = DEFAULT_COUNTRY, maxResults = RESULTS_PER_PAGE) {
+  // Grab our API keys from the environment variables (like a secret vault)
   const appId = process.env.ADZUNA_APP_ID || "";
   const appKey = process.env.ADZUNA_APP_KEY || "";
 
+  // Make sure the country code is lowercase and doesn't have weird spaces
   const countryCode = country.trim().toLowerCase();
 
   // If credentials are missing or country is unsupported, use mock data
+  // (Mock data is fake data we use when the real API isn't working)
   if (!appId || !appKey || appId.toLowerCase().includes("your-") || !SUPPORTED_COUNTRIES.includes(countryCode)) {
     return getMockJobs(query);
   }
 
+  // Build the final URL by swapping out the placeholders
   const url = ADZUNA_BASE_URL
     .replace("{country}", countryCode)
     .replace("{page}", String(DEFAULT_PAGE));
 
+  // Set up the extra pieces of info we need to send to the API (like the search query)
   const params = new URLSearchParams({
     app_id: appId,
     app_key: appKey,
-    results_per_page: String(Math.min(maxResults, 50)),
+    results_per_page: String(Math.min(maxResults, 50)), // don't allow more than 50!
     what: query,
     where: location,
     "content-type": "application/json",
   });
 
   try {
+    // Actually make the network request! We also give it a 10 second timeout so it doesn't hang forever
     const response = await fetch(`${url}?${params}`, {
       signal: AbortSignal.timeout(10000),
     });
 
+    // If the server was unhappy (like a 404 or 500 error), just return fake data
     if (!response.ok) {
       return getMockJobs(query);
     }
 
+    // Convert the text response into a nice JavaScript object
     const data = await response.json();
+    
+    // Clean up the data into a simpler format that our app expects
     const jobs = (data.results || []).map((result) => ({
-      title: result.title || "Untitled Position",
+      title: result.title || "Untitled Position", // Fallbacks in case the API forgets something
       company: result.company?.display_name || "Company Not Listed",
       location: result.location?.display_name || location,
       description: result.description || "No description available.",
     }));
 
+    // Return the jobs, or fake ones if the API gave us an empty list
     return jobs.length > 0 ? jobs : getMockJobs(query);
   } catch (err) {
+    // Oh no, something went wrong (like the internet disconnected). Fallback to fake data!
     console.warn(`Job API unavailable (${err.name}). Using mock data.`);
     return getMockJobs(query);
   }

@@ -54,7 +54,7 @@ The platform relies on the following automated workflow:
 
 ## 🤖 Agent Architecture
 
-![Agent Architecture Diagram](assets/architecture_placeholder.png) *(Add an architecture diagram here!)*
+![Agent Architecture Diagram](assets/image.png)
 
 JobAlign utilizes a **Multi-Agent Workflow** under the hood to ensure high-quality CV tailoring and accurate job matching:
 
@@ -72,7 +72,9 @@ JobAlign utilizes a **Multi-Agent Workflow** under the hood to ensure high-quali
 |---|---|
 | Frontend Framework | Next.js (App Router) & React.js |
 | AI Agent Framework | Custom Orchestration (JS) & Google ADK (Python Prototype) |
-| LLM Engine | Google Gemini (via `@google/genai` SDK) |
+| Built With AI (Dev) | Gemini 3.1 Pro, Gemini 2.5 Flash, Claude Sonnet 4.6 |
+| IDE / Dev Tool | Antigravity IDE |
+| LLM Engine (App) | Google Gemini (via `@google/genai` SDK) |
 | Job Data API | Adzuna Job Search API |
 | Styling | CSS Modules / Custom CSS |
 | Deployment | Vercel |

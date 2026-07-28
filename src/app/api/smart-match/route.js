@@ -12,14 +12,15 @@ import { runAgent } from "@/lib/gemini";
 import { fetchLiveJobs } from "@/lib/jobSearch";
 import { CV_ANALYZER_PROMPT, QUICK_ATS_PROMPT } from "@/lib/agentPrompts";
 
-export const runtime = "edge";
 export const maxDuration = 60;
 
 export async function POST(request) {
   try {
+    // Read the incoming request data (like opening a package)
     const body = await request.json();
-    const { cv, location = "Dubai", country = "ae" } = body;
+    const { cv, location = "Dubai", country = "ae" } = body; // Set default locations if none are provided!
 
+    // We can't do anything without a CV!
     if (!cv || !cv.trim()) {
       return Response.json({ error: "CV text is required." }, { status: 400 });
     }
@@ -32,10 +33,11 @@ export async function POST(request) {
 
     let cvAnalysis;
     try {
-      // Strip potential markdown code fences
+      // Sometimes the AI gives us extra formatting (like ```json), so we need to clean it up before parsing
       const cleaned = analyzerResponse.replace(/```json\n?|```\n?/g, "").trim();
       cvAnalysis = JSON.parse(cleaned);
     } catch {
+      // If the AI gave us garbage that we can't read, let the user know
       return Response.json(
         { error: "Failed to analyze CV. Please try again." },
         { status: 500 }
@@ -43,6 +45,7 @@ export async function POST(request) {
     }
 
     // ── Step 2: Search for matching jobs ─────────────────────────────────
+    // Use the job title the AI found (or default to Software Developer) to find real jobs online!
     const searchQuery = cvAnalysis.searchQuery || "Software Developer";
     const jobs = await fetchLiveJobs(searchQuery, location.trim(), country, 5);
 
@@ -87,7 +90,7 @@ export async function POST(request) {
       })
     );
 
-    // Sort by ATS score descending
+    // Sort the jobs so the highest ATS scores show up first! (A, B comparison)
     scoredJobs.sort((a, b) => b.atsScore - a.atsScore);
 
     return Response.json({
